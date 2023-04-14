@@ -52,6 +52,7 @@ public class OrderRollerTest {
         System.setProperty("webdriver.chrome.driver", "/Users/vitalypetrov/IdeaProjects/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(options);
         //WebDriver driver = new FirefoxDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
         //Обьявил экземпляр главной страницы
@@ -76,10 +77,9 @@ public class OrderRollerTest {
         String result = driver.findElement(By.cssSelector(".Order_Modal__YZ-d3 .Order_ModalHeader__3FDaJ")).getText();
         //завел переменную в которой сохранил появившуюся модалку
         WebElement modal = driver.findElement(By.cssSelector(".Order_Modal__YZ-d3"));
+        Assert.assertThat(result, CoreMatchers.startsWith("Заказ оформлен"));
         //Проверяю что модалка отобразилась
-        Assert.assertTrue(modal.isDisplayed());
-        //Закомментил  - тк в задаче нужно проверить что модалка есть
-        //Assert.assertThat(result, CoreMatchers.startsWith("Заказ оформлен"));
+        //Assert.assertTrue(modal.isDisplayed());
         driver.quit();
     }
 
