@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class firstOrderPage {
     //Инициализировал драйвер
-    private WebDriver driver;
+    private final WebDriver driver;
     //Конструктор страницы заказа с аргументом Driver
     public firstOrderPage(WebDriver driver){
         this.driver = driver;
