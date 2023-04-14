@@ -1,4 +1,4 @@
-import Pages.MainPage;
+import PageObject.MainPage;
 import org.junit.Test;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
@@ -52,6 +52,7 @@ public class MainPageTest  {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*","--headless");
         WebDriver driver = new ChromeDriver(options);
+        //WebDriver driver = new FirefoxDriver();
         //Перешел на главную
         driver.get("https://qa-scooter.praktikum-services.ru/");
         //Создал экземпляр главной страницы

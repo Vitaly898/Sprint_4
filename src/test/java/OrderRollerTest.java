@@ -1,6 +1,6 @@
-import Pages.MainPage;
-import Pages.firstOrderPage;
-import Pages.secondOrderPage;
+import PageObject.MainPage;
+import PageObject.firstOrderPage;
+import PageObject.secondOrderPage;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,10 +49,10 @@ public class OrderRollerTest {
     @Test
     public void test() {
         //обьявил драйвер и создал его экземпляр
-//        System.setProperty("webdriver.chrome.driver", "/Users/vitalypetrov/IdeaProjects/chromedriver");
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", "/Users/vitalypetrov/IdeaProjects/chromedriver");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        //WebDriver driver = new FirefoxDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
         //Обьявил экземпляр главной страницы
         MainPage objMainPage = new MainPage(driver);
