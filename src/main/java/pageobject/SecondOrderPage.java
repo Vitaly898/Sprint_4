@@ -1,13 +1,13 @@
-package PageObject;
+package pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-public class secondOrderPage {
+public class SecondOrderPage {
     //Инициализировал драйвер
     WebDriver driver;
-    public secondOrderPage(WebDriver driver){
+    public SecondOrderPage(WebDriver driver){
         this.driver = driver;
     }
 //Локаторы элементов на второй странице для заказа
@@ -44,8 +44,8 @@ public class secondOrderPage {
     }
 
     //Общий метод заполнения всех инпутов на второй странице, клик на кнопку заказать и на Кнопку Да в модалке подтверждения заказа
-    public void fillSecondPageFields(String date){
-        inputData(date);
+    public void fillSecondPageFields(String data){
+        inputData(data);
         chooseCountOfDays(getTimeOfRentDropDownItem1);
         chooseColor(colorBlack);
         confirmOrder();

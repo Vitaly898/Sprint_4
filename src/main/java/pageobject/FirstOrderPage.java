@@ -1,14 +1,14 @@
-package PageObject;
+package pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-public class firstOrderPage {
+public class FirstOrderPage {
     //Инициализировал драйвер
     private final WebDriver driver;
     //Конструктор страницы заказа с аргументом Driver
-    public firstOrderPage(WebDriver driver){
+    public FirstOrderPage(WebDriver driver){
         this.driver = driver;
     }
 
@@ -27,7 +27,7 @@ public class firstOrderPage {
     public By buttonNext = By.xpath(".//button[text()='Далее']");
     //Методы заполнения инпутов
     //Общий метод для заполнения инпута - передаю в него локатор инпута и то что хочу туда вписать
-    public void fillTheInput(By inputName,String keys){
+    public void fillInput(By inputName,String keys){
 
         driver.findElement(inputName).sendKeys(keys);
     }
@@ -37,11 +37,11 @@ public class firstOrderPage {
     }
     //Собрал в один метод заполнение всех инпутов и клик на кнопку Далее
     public void fillAllInputsAndPressNext(String name,String surname,String address, String phone,String metro){
-        fillTheInput(nameField,name);
-        fillTheInput(surnameField,surname);
-        fillTheInput(addressField,address);
+        fillInput(nameField,name);
+        fillInput(surnameField,surname);
+        fillInput(addressField,address);
         fillMetroField(metroField,metro);
-        fillTheInput(phoneNumber,phone);
+        fillInput(phoneNumber,phone);
         driver.findElement(buttonNext).click();
 
     }
