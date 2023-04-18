@@ -22,22 +22,24 @@ public class OrderRollerTest {
     private final String phoneValue;
     private final String metroValue;
     private final String data;
+    private final int orderButtonNumber;
 //Обьявил конструктор с полями для инпутов
-    public OrderRollerTest(String nameValue, String surnameValue, String addressValue, String phoneValue, String metroValue, String data) {
+    public OrderRollerTest(String nameValue, String surnameValue, String addressValue, String phoneValue, String metroValue, String data, int orderButtonNumber) {
         this.nameValue = nameValue;
         this.surnameValue = surnameValue;
         this.addressValue = addressValue;
         this.phoneValue = phoneValue;
         this.metroValue = metroValue;
         this.data = data;
-
+        // 0 - кнопка в хедере, 1 - кнопка в середине страницы
+        this.orderButtonNumber = orderButtonNumber;
     }
     //создал обьект с передаваемыми значениями
     @Parameterized.Parameters
     public static Object [][] personValues(){
         return new Object[][]{
-                {"Виталий","Петров","Санкт-Петербург","89991112233","Черкизовская","31.04.2023"},
-                {"Николас","Кейдж","Москва","89991234567","Чистые пруды","3.05.2024"}
+                {"Виталий","Петров","Санкт-Петербург","89991112233","Черкизовская","31.04.2023",0},
+                {"Николас","Кейдж","Москва","89991234567","Чистые пруды","3.05.2024",1}
         };
     }
 
@@ -47,7 +49,7 @@ public class OrderRollerTest {
         //обьявил драйвер и создал его экземпляр
         System.setProperty("webdriver.chrome.driver", "/Users/vitalypetrov/IdeaProjects/chromedriver");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*","--headless");
+        options.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(options);
         //WebDriver driver = new FirefoxDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -55,8 +57,8 @@ public class OrderRollerTest {
         MainPage objMainPage = new MainPage(driver);
         //Закрыл куки
         objMainPage.closeCookie();
-        //нажал на кнопку заказать(2 раза в хедере и 2 раза в середине страницы)
-        driver.findElement(objMainPage.orderButtonHeader).click();
+        //нажал на кнопку заказать
+        objMainPage.clickOrderButton(orderButtonNumber);
         //Обьявил экземпляр первой страницы заказа
         FirstOrderPage orderPageNameSurname = new FirstOrderPage(driver);
         //Заполнил все поля и кликнул Далее

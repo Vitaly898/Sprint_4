@@ -18,15 +18,15 @@ public class MainPage {
     //Кнопка заказа в хедере
     public By orderButtonHeader = By.cssSelector(".Header_Nav__AGCXC .Button_Button__ra12g");
     //Кнопка заказа в середине страницы
-    public By orderButtonMiddleOfPage = By.cssSelector(".Home_FinishButton__1_cWm button");
+    private By orderButtonMiddleOfPage = By.cssSelector(".Home_FinishButton__1_cWm button");
     //Вопросы и ответы о Важном
-    public String [] questions = new String[] {"#accordion__heading-0","#accordion__heading-1","#accordion__heading-2",
+    private String [] questions = new String[] {"#accordion__heading-0","#accordion__heading-1","#accordion__heading-2",
             "#accordion__heading-3","#accordion__heading-4","#accordion__heading-5","#accordion__heading-6","#accordion__heading-7"};
-    public String [] answers = new String[] { "#accordion__panel-0","#accordion__panel-1","#accordion__panel-2","#accordion__panel-3","#accordion__panel-4",
+    private String [] answers = new String[] { "#accordion__panel-0","#accordion__panel-1","#accordion__panel-2","#accordion__panel-3","#accordion__panel-4",
             "#accordion__panel-5","#accordion__panel-6","#accordion__panel-7"};
 
     //Кнопка перехода на страницу статуса заказа
-    public By orderStatusButton = By.cssSelector(".Header_Nav__AGCXC .Header_Link__1TAG7");
+    private By orderStatusButton = By.cssSelector(".Header_Nav__AGCXC .Header_Link__1TAG7");
 
     //Конструктор MainPage с аргументом
     public MainPage(WebDriver driver) {
@@ -43,6 +43,12 @@ public class MainPage {
             WebElement searchingElement = driver.findElement(mainQuestionText);
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", searchingElement);
         }
+
+    //метод клика на одну из кнопок "Заказать"
+    public void clickOrderButton(int numberOfButton){
+        driver.findElement(numberOfButton == 0 ?  orderButtonHeader : orderButtonMiddleOfPage).click();
+
+    }
         public void clickOnListOfQuestions(int numOfElement){
             driver.findElement(By.cssSelector(questions[numOfElement])).click();
         }

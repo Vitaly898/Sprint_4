@@ -14,17 +14,18 @@ public class FirstOrderPage {
 
     //Нашел все локаторы инпутов
     //Имя
-    public By nameField = By.xpath(".//input[@placeholder = '* Имя']");
+    private By nameField = By.xpath(".//input[@placeholder = '* Имя']");
     //Фамилия
-    public By surnameField = By.xpath(".//input[@placeholder = '* Фамилия']");
+    private By surnameField = By.xpath(".//input[@placeholder = '* Фамилия']");
     //Адрес
-    public By addressField  = By.xpath(".//input[@placeholder = '* Адрес: куда привезти заказ']");
+    private By addressField  = By.xpath(".//input[@placeholder = '* Адрес: куда привезти заказ']");
     //Станция метро
-    public By metroField = By.xpath(".//input[@placeholder = '* Станция метро']");
+    private By metroField = By.xpath(".//input[@placeholder = '* Станция метро']");
     //Теефон
-    public By phoneNumber = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
+    private By phoneNumber = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
     //Кнопка далее
-    public By buttonNext = By.xpath(".//button[text()='Далее']");
+    private By buttonNext = By.xpath(".//button[text()='Далее']");
+
     //Методы заполнения инпутов
     //Общий метод для заполнения инпута - передаю в него локатор инпута и то что хочу туда вписать
     public void fillInput(By inputName,String keys){
