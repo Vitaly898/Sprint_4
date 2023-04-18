@@ -11,17 +11,17 @@ public class SecondOrderPage {
         this.driver = driver;
     }
 //Локаторы элементов на второй странице для заказа
-    public By dataField = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
-    public By rentTimeField = By.xpath(".//input[@placeholder = '* Срок аренды']");
-    public By colorBlack = By.cssSelector("#black");
-    public By colorGrey = By.cssSelector("#grey");
-    public By timeOfRentDropDown = By.cssSelector(".Dropdown-control");
-    public By getTimeOfRentDropDownItem1 = By.xpath(".//div[text()='сутки']");
-    public By getTimeOfRentDropDownItem2 = By.xpath(".//div[text()='двое суток']");
-    public By orderButtonFinal = By.xpath(".//div[@class= 'Order_Buttons__1xGrp']/button[text()='Заказать']");
-    public By orderConfirmButton = By.xpath(".//button[text()='Да']");
+    private By dataField = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
+    private By rentTimeField = By.xpath(".//input[@placeholder = '* Срок аренды']");
+    private By colorBlack = By.cssSelector("#black");
+    private By colorGrey = By.cssSelector("#grey");
+    private By timeOfRentDropDown = By.cssSelector(".Dropdown-control");
+    private By getTimeOfRentDropDownItem1 = By.xpath(".//div[text()='сутки']");
+    private By getTimeOfRentDropDownItem2 = By.xpath(".//div[text()='двое суток']");
+    private By orderButtonFinal = By.xpath(".//div[@class= 'Order_Buttons__1xGrp']/button[text()='Заказать']");
+    private By orderConfirmButton = By.xpath(".//button[text()='Да']");
 
-    public By orderSuccessModal = By.cssSelector(".Order_Modal__YZ-d3 .Order_ModalHeader__3FDaJ");
+    private By orderSuccessModal = By.cssSelector(".Order_Modal__YZ-d3 .Order_ModalHeader__3FDaJ");
 
 
     //Методы для работы с этими локаторами
@@ -41,6 +41,10 @@ public class SecondOrderPage {
     //Метод клика на кнопку заказать
     public void confirmOrder(){
         driver.findElement(orderButtonFinal).click();
+    }
+    //метод получения текста из модалки
+    public String successModalGetText(){
+      return driver.findElement(orderSuccessModal).getText();
     }
 
     //Общий метод заполнения всех инпутов на второй странице, клик на кнопку заказать и на Кнопку Да в модалке подтверждения заказа

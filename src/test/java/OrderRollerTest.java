@@ -1,3 +1,4 @@
+import org.openqa.selenium.firefox.FirefoxDriver;
 import pageobject.MainPage;
 import pageobject.FirstOrderPage;
 import pageobject.SecondOrderPage;
@@ -68,7 +69,8 @@ public class OrderRollerTest {
         //Заполнил на ней все поля, кликунл на Заказать и подтвердил нажав на ДА
         orderPageOrderData.fillSecondPageFields(data);
         //Наше текст воявившейся в результате удачного заказа модалки
-        String result = driver.findElement(orderPageOrderData.orderSuccessModal).getText();
+        String result = orderPageOrderData.successModalGetText();
+        System.out.println(result);
         //завел переменную в которой сохранил появившуюся модалку
         Assert.assertThat(result, CoreMatchers.startsWith("Заказ оформлен"));
         driver.quit();
