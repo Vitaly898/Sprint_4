@@ -16,7 +16,7 @@ public class MainPage {
     //Тайтл списка "Вопросы о важном"
     private final By mainQuestionText = By.xpath(".//div[text()='Вопросы о важном']");
     //Кнопка заказа в хедере
-    public By orderButtonHeader = By.cssSelector(".Header_Nav__AGCXC .Button_Button__ra12g");
+    private By orderButtonHeader = By.cssSelector(".Header_Nav__AGCXC .Button_Button__ra12g");
     //Кнопка заказа в середине страницы
     private By orderButtonMiddleOfPage = By.cssSelector(".Home_FinishButton__1_cWm button");
     //Вопросы и ответы о Важном
